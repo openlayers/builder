@@ -1,0 +1,22 @@
+<table>
+  <tbody>
+    <tr><th>Release</th><th>Added</th><th>Status</th></tr>
+    {{#each releases}}
+    <tr>
+      <td>
+      {{#compare state 'complete'}}
+        <a href="/release/{{name}}">{{name}}</a>
+      {{else}}
+        {{name}}
+      {{/compare}}
+      </td>
+      <td>
+        <time datetime="{{iso created}}" title="{{utc created}}">
+          {{ago created}}
+        </time>
+      </td>
+      <td>{{state}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

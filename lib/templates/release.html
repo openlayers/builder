@@ -1,0 +1,9 @@
+Release: {{release.name}}
+
+<form>
+  {{#each symbols}}
+  <br>
+  <input type="checkbox" name="{{name}}" id="symbol-{{@index}}">
+  <label for="symbol-{{@index}}"><code>{{name}}</code></label>
+  {{/each}}
+</form>

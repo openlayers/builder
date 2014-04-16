@@ -1,0 +1,8 @@
+{
+  "releases": [
+    {
+      "name": "custom-build",
+      "url": "https://github.com/tschaub/ol3/archive/custom-build.zip"
+    }
+  ]
+}
