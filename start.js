@@ -18,5 +18,5 @@ downloader.start(function(err) {
 
 // Start the server
 server.start(function() {
-  console.log('Server started at ' + server.info.uri + '/');
+  log.info('start', 'Server started at ' + server.info.uri + '/');
 });
