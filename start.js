@@ -1,15 +1,12 @@
-var mongoose = require('mongoose');
+var log = require('npmlog');
 
 var downloader = require('./lib/downloader');
 var server = require('./lib/server');
 
-// Connect to the db
-mongoose.connect('mongodb://localhost:27017/ol', function(err) {
-  if (err) {
-    console.error('Trouble connecting to Mongo: %s', err.message);
-    process.exit(1);
-  }
-});
+
+/** @type {string} */
+log.level = 'verbose';
+
 
 // Kick off any new downloads
 downloader.start(function(err) {

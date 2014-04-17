@@ -10,11 +10,7 @@ Dependencies are managed with `npm`:
 
     npm install
 
-Requires that MongoDB is installed and running.
-
-    mongod
-
-With dependencies installed and MongoDB running, you can start the server.
+With dependencies installed, you can start the server.
 
     npm start
 
