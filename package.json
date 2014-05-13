@@ -5,7 +5,7 @@
   "main": "start.js",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "hapi": "~4.0.0",
+    "hapi": "~4.1.0",
     "handlebars": "~2.0.0-alpha.2",
     "get-down": "~0.3.1",
     "async": "~0.7.0",

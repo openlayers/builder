@@ -1,8 +1,8 @@
 {
   "releases": [
     {
-      "name": "custom-build",
-      "url": "https://github.com/tschaub/ol3/archive/custom-build.zip"
+      "name": "6ab92086d2",
+      "url": "https://github.com/openlayers/ol3/archive/6ab92086d2.zip"
     }
   ]
 }
