@@ -5,13 +5,11 @@
   "main": "start.js",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "hapi": "~4.1.0",
-    "handlebars": "~2.0.0-alpha.2",
-    "get-down": "~0.3.1",
     "async": "~0.7.0",
-    "rimraf": "~2.2.6",
+    "get-down": "0.5.0",
+    "hapi": "^8.4.0",
     "npmlog": "0.0.6",
-    "moment": "~2.6.0"
+    "rimraf": "~2.2.6"
   },
   "scripts": {
     "start": "node start.js"
