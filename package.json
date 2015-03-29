@@ -12,6 +12,10 @@
     "rimraf": "~2.2.6"
   },
   "scripts": {
-    "start": "node start.js"
+    "start": "node start.js",
+    "test": "eslint lib start.js"
+  },
+  "devDependencies": {
+    "eslint": "^0.18.0"
   }
 }
