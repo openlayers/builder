@@ -61,6 +61,26 @@ lab.experiment('server', function() {
       expect(result.releases).to.have.length(1);
       expect(result.releases[0]).to.include('name');
       expect(result.releases[0].name).to.equal('1.2.3');
+      var link = server.info.uri +
+          server.lookup('release').path.replace('{name}', '1.2.3');
+      expect(result.releases[0].link).to.equal(link);
+      done();
+    });
+  });
+
+  lab.test('GET /releases/1.2.3', function(done) {
+    var name = '1.2.3';
+    var options = {
+      method: 'GET',
+      url: server.lookup('release').path.replace('{name}', name)
+    };
+
+    server.inject(options, function(response) {
+      var result = response.result;
+      expect(response.statusCode).to.equal(200);
+      expect(result).to.include('release');
+      expect(result.release).to.include('name');
+      expect(result.release.name).to.equal(name);
       done();
     });
   });

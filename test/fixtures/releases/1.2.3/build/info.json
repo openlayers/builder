@@ -1,0 +1,16 @@
+{
+  "symbols": [
+    {
+      "name": "ol.animation.bounce",
+      "kind": "function",
+      "stability": "experimental"
+    }
+  ],
+  "defines": [
+    {
+      "name": "ol.ASSUME_TOUCH",
+      "description": "Assume touch.  Default is `false`.",
+      "default": false
+    }
+  ]
+}
