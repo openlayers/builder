@@ -47,4 +47,31 @@ lab.experiment('Release', function() {
     done();
   });
 
+  lab.test('Release.fromString()', function(done) {
+    var name = '1.2.3';
+    var url = 'http://example.com/release.zip';
+    var state = Release.states.COMPLETE;
+    var created = 10;
+    var updated = 20;
+    var str = JSON.stringify({
+      name: name,
+      url: url,
+      state: state,
+      created: created,
+      updated: updated
+    });
+
+    var release = Release.fromString(str);
+    expect(release).to.be.an.instanceof(Release);
+    expect(release.name).to.equal(name);
+    expect(release.url).to.equal(url);
+    expect(release.state).to.equal(state);
+    expect(release.created).to.be.an.instanceof(Date);
+    expect(release.created.getTime()).to.equal(created);
+    expect(release.updated).to.be.an.instanceof(Date);
+    expect(release.updated.getTime()).to.equal(updated);
+
+    done();
+  });
+
 });
