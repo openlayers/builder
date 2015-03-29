@@ -13,9 +13,11 @@
   },
   "scripts": {
     "start": "node start.js",
-    "test": "eslint lib start.js"
+    "test": "eslint lib test start.js && lab"
   },
   "devDependencies": {
-    "eslint": "^0.18.0"
+    "code": "^1.4.0",
+    "eslint": "^0.18.0",
+    "lab": "^5.5.1"
   }
 }
