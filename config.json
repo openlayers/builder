@@ -2,7 +2,7 @@
   "releases": [
     {
       "name": "3.4.0",
-      "url": "https://github.com/openlayers/ol3/archive/v3.4.0.zip"
+      "archive": "https://github.com/openlayers/ol3/archive/v3.4.0.zip"
     }
   ]
 }
