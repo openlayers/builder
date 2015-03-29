@@ -1,11 +1,11 @@
 var log = require('npmlog');
 
+var config = require('./config');
 var downloader = require('./lib/downloader');
 var server = require('./lib/server');
 
 
-/** @type {string} */
-log.level = 'verbose';
+log.level = config.logLevel;
 
 
 // Kick off any new downloads

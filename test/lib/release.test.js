@@ -23,11 +23,11 @@ lab.experiment('Release', function() {
     done();
   });
 
-  lab.test('constructor - no config', function(done) {
+  lab.test('constructor - no options', function(done) {
     var throws = function() {
       return new Release();
     };
-    expect(throws).to.throw(Error, 'Missing config');
+    expect(throws).to.throw(Error, 'Missing options');
     done();
   });
 
