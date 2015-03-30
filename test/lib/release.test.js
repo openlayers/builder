@@ -6,6 +6,18 @@ var expect = require('code').expect;
 var Release = require('../../lib/release');
 var config = require('../../lib/config');
 
+var releaseRoot;
+lab.before(function(done) {
+  releaseRoot = config.releaseRoot;
+  config.releaseRoot = path.join(__dirname, '..', 'fixtures', 'releases');
+  done();
+});
+
+lab.after(function(done) {
+  config.releaseRoot = releaseRoot;
+  done();
+});
+
 lab.experiment('new Release()', function() {
 
   lab.test('creating a new release', function(done) {
@@ -54,18 +66,6 @@ lab.experiment('new Release()', function() {
 
 lab.experiment('Release.all()', function() {
 
-  var releaseRoot;
-  lab.before(function(done) {
-    releaseRoot = config.releaseRoot;
-    config.releaseRoot = path.join(__dirname, '..', 'fixtures', 'releases');
-    done();
-  });
-
-  lab.after(function(done) {
-    config.releaseRoot = releaseRoot;
-    done();
-  });
-
   lab.test('finding all releases', function(done) {
     Release.all(function(err, releases) {
       if (err) {
@@ -81,18 +81,6 @@ lab.experiment('Release.all()', function() {
 });
 
 lab.experiment('Release.find()', function() {
-
-  var releaseRoot;
-  lab.before(function(done) {
-    releaseRoot = config.releaseRoot;
-    config.releaseRoot = path.join(__dirname, '..', 'fixtures', 'releases');
-    done();
-  });
-
-  lab.after(function(done) {
-    config.releaseRoot = releaseRoot;
-    done();
-  });
 
   lab.test('finding releases by name', function(done) {
     var name = '1.2.3';
@@ -122,18 +110,6 @@ lab.experiment('Release.find()', function() {
 });
 
 lab.experiment('Release.findOne()', function() {
-
-  var releaseRoot;
-  lab.before(function(done) {
-    releaseRoot = config.releaseRoot;
-    config.releaseRoot = path.join(__dirname, '..', 'fixtures', 'releases');
-    done();
-  });
-
-  lab.after(function(done) {
-    config.releaseRoot = releaseRoot;
-    done();
-  });
 
   lab.test('finding a single release', function(done) {
     var name = '1.2.3';
@@ -206,18 +182,6 @@ function getReleaseOrFatal(name, errorHandler, callback) {
 
 lab.experiment('release#getInfo()', function() {
 
-  var releaseRoot;
-  lab.before(function(done) {
-    releaseRoot = config.releaseRoot;
-    config.releaseRoot = path.join(__dirname, '..', 'fixtures', 'releases');
-    done();
-  });
-
-  lab.after(function(done) {
-    config.releaseRoot = releaseRoot;
-    done();
-  });
-
   lab.test('getting info.json for a release', function(done) {
     getReleaseOrFatal('1.2.3', done, function(release) {
       release.getInfo(function(err, info) {
@@ -227,6 +191,24 @@ lab.experiment('release#getInfo()', function() {
         }
         expect(info).to.include('symbols');
         expect(info).to.include('defines');
+        done();
+      });
+    });
+  });
+
+});
+
+lab.experiment('release#getFullBuildConfig()', function() {
+
+  lab.test('getting the full build config for a release', function(done) {
+    getReleaseOrFatal('1.2.3', done, function(release) {
+      release.getFullBuildConfig(function(err, buildConfig) {
+        if (err) {
+          done(err);
+          return;
+        }
+        expect(buildConfig).to.include('exports');
+        expect(buildConfig).to.include('compile');
         done();
       });
     });
