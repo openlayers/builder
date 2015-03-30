@@ -85,4 +85,23 @@ lab.experiment('server', function() {
     });
   });
 
+  lab.test('POST /releases/1.2.3/build - invalid payload', function(done) {
+    var name = '1.2.3';
+    var options = {
+      method: 'POST',
+      url: server.lookup('trigger-build').path.replace('{name}', name),
+      payload: {
+        foo: 'bar'
+      }
+    };
+
+    server.inject(options, function(response) {
+      var result = response.result;
+      expect(response.statusCode).to.equal(400);
+      expect(result).to.include('message');
+      expect(result.message).to.equal('"foo" is not allowed');
+      done();
+    });
+  });
+
 });
