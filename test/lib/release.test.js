@@ -1,11 +1,14 @@
+var path = require('path');
+
 var lab = exports.lab = require('lab').script();
 var expect = require('code').expect;
 
 var Release = require('../../lib/release');
+var config = require('../../lib/config');
 
-lab.experiment('Release', function() {
+lab.experiment('new Release()', function() {
 
-  lab.test('constructor', function(done) {
+  lab.test('creating a new release', function(done) {
     var name = '3.4.5';
     var archive = 'http://example.com/release.zip';
 
@@ -23,7 +26,7 @@ lab.experiment('Release', function() {
     done();
   });
 
-  lab.test('constructor - no options', function(done) {
+  lab.test('missing options', function(done) {
     var throws = function() {
       return new Release();
     };
@@ -31,7 +34,7 @@ lab.experiment('Release', function() {
     done();
   });
 
-  lab.test('constructor - no name', function(done) {
+  lab.test('missing name', function(done) {
     var throws = function() {
       return new Release({archive: 'foo'});
     };
@@ -39,7 +42,7 @@ lab.experiment('Release', function() {
     done();
   });
 
-  lab.test('constructor - no archive', function(done) {
+  lab.test('missing archive', function(done) {
     var throws = function() {
       return new Release({name: 'foo'});
     };
@@ -47,7 +50,121 @@ lab.experiment('Release', function() {
     done();
   });
 
-  lab.test('Release.fromString()', function(done) {
+});
+
+lab.experiment('Release.all()', function() {
+
+  var releaseRoot;
+  lab.before(function(done) {
+    releaseRoot = config.releaseRoot;
+    config.releaseRoot = path.join(__dirname, '..', 'fixtures', 'releases');
+    done();
+  });
+
+  lab.after(function(done) {
+    config.releaseRoot = releaseRoot;
+    done();
+  });
+
+  lab.test('finding all releases', function(done) {
+    Release.all(function(err, releases) {
+      if (err) {
+        done(err);
+        return;
+      }
+      expect(releases).to.be.an.array();
+      expect(releases).to.have.length(1);
+      done();
+    });
+  });
+
+});
+
+lab.experiment('Release.find()', function() {
+
+  var releaseRoot;
+  lab.before(function(done) {
+    releaseRoot = config.releaseRoot;
+    config.releaseRoot = path.join(__dirname, '..', 'fixtures', 'releases');
+    done();
+  });
+
+  lab.after(function(done) {
+    config.releaseRoot = releaseRoot;
+    done();
+  });
+
+  lab.test('finding releases by name', function(done) {
+    var name = '1.2.3';
+    Release.find({name: name}, function(err, releases) {
+      if (err) {
+        done(err);
+        return;
+      }
+      expect(releases).to.be.an.array();
+      expect(releases).to.have.length(1);
+      done();
+    });
+  });
+
+  lab.test('bogus release name', function(done) {
+    Release.find({name: 'bogus'}, function(err, releases) {
+      if (err) {
+        done(err);
+        return;
+      }
+      expect(releases).to.be.an.array();
+      expect(releases).to.have.length(0);
+      done();
+    });
+  });
+
+});
+
+lab.experiment('Release.findOne()', function() {
+
+  var releaseRoot;
+  lab.before(function(done) {
+    releaseRoot = config.releaseRoot;
+    config.releaseRoot = path.join(__dirname, '..', 'fixtures', 'releases');
+    done();
+  });
+
+  lab.after(function(done) {
+    config.releaseRoot = releaseRoot;
+    done();
+  });
+
+  lab.test('finding a single release', function(done) {
+    var name = '1.2.3';
+    Release.findOne({name: name}, function(err, release) {
+      if (err) {
+        done(err);
+        return;
+      }
+      expect(release).to.be.an.instanceof(Release);
+      expect(release.name).to.equal(name);
+      done();
+    });
+  });
+
+  lab.test('no results', function(done) {
+    var name = 'bogus';
+    Release.findOne({name: name}, function(err, release) {
+      if (err) {
+        done(err);
+        return;
+      }
+      expect(release).to.be.null();
+      done();
+    });
+  });
+
+});
+
+lab.experiment('Release.fromString()', function() {
+
+  lab.test('creating a new release', function(done) {
     var name = '1.2.3';
     var archive = 'http://example.com/release.zip';
     var state = Release.states.COMPLETE;
