@@ -192,3 +192,44 @@ lab.experiment('Release.fromString()', function() {
   });
 
 });
+
+
+function getReleaseOrFatal(name, errorHandler, callback) {
+  Release.findOne({name: name}, function(err, release) {
+    if (err) {
+      errorHandler(err);
+      return;
+    }
+    callback(release);
+  });
+}
+
+lab.experiment('release#getInfo()', function() {
+
+  var releaseRoot;
+  lab.before(function(done) {
+    releaseRoot = config.releaseRoot;
+    config.releaseRoot = path.join(__dirname, '..', 'fixtures', 'releases');
+    done();
+  });
+
+  lab.after(function(done) {
+    config.releaseRoot = releaseRoot;
+    done();
+  });
+
+  lab.test('getting info.json for a release', function(done) {
+    getReleaseOrFatal('1.2.3', done, function(release) {
+      release.getInfo(function(err, info) {
+        if (err) {
+          done(err);
+          return;
+        }
+        expect(info).to.include('symbols');
+        expect(info).to.include('defines');
+        done();
+      });
+    });
+  });
+
+});
