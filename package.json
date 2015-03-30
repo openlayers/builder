@@ -4,6 +4,10 @@
   "description": "OpenLayers 3 builder",
   "main": "start.js",
   "license": "BSD-2-Clause",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/openlayers/builder.git"
+  },
   "dependencies": {
     "async": "0.9.0",
     "boom": "2.6.1",
