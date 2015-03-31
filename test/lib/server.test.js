@@ -62,7 +62,7 @@ lab.experiment('server', function() {
       expect(result.releases[0]).to.include('name');
       expect(result.releases[0].name).to.equal('1.2.3');
       var link = server.info.uri +
-          server.lookup('release').path.replace('{name}', '1.2.3');
+          server.lookup('release').path.replace('{release}', '1.2.3');
       expect(result.releases[0].link).to.equal(link);
       done();
     });
@@ -72,7 +72,7 @@ lab.experiment('server', function() {
     var name = '1.2.3';
     var options = {
       method: 'GET',
-      url: server.lookup('release').path.replace('{name}', name)
+      url: server.lookup('release').path.replace('{release}', name)
     };
 
     server.inject(options, function(response) {
@@ -85,11 +85,11 @@ lab.experiment('server', function() {
     });
   });
 
-  lab.test('POST /releases/1.2.3/build - invalid payload', function(done) {
+  lab.test('POST /jobs/1.2.3/ - invalid payload', function(done) {
     var name = '1.2.3';
     var options = {
       method: 'POST',
-      url: server.lookup('trigger-build').path.replace('{name}', name),
+      url: server.lookup('new-job').path.replace('{release}', name),
       payload: {
         foo: 'bar'
       }

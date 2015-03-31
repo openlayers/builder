@@ -3,7 +3,7 @@ var expect = require('code').expect;
 
 var build = require('../../lib/build');
 
-lab.experiment('generateId()', function() {
+lab.experiment('getLongId()', function() {
 
   lab.test('scenario 1', function(done) {
     var buildConfig = {
@@ -42,7 +42,7 @@ lab.experiment('generateId()', function() {
       ]
     };
 
-    var id = build.generateId(buildConfig, releaseInfo);
+    var id = build.getLongId(buildConfig, releaseInfo);
     expect(id).to.equal('l5.a');
     done();
   });
@@ -76,7 +76,7 @@ lab.experiment('generateId()', function() {
       ]
     };
 
-    var id = build.generateId(buildConfig, releaseInfo);
+    var id = build.getLongId(buildConfig, releaseInfo);
     expect(id).to.equal('a.5');
     done();
   });
@@ -107,7 +107,7 @@ lab.experiment('generateId()', function() {
       ]
     };
 
-    var id = build.generateId(buildConfig, releaseInfo);
+    var id = build.getLongId(buildConfig, releaseInfo);
     expect(id).to.equal('a.5');
     done();
   });
