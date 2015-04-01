@@ -33,20 +33,6 @@ lab.experiment('server', function() {
     });
   });
 
-  lab.test('GET / redirects to /releases/', function(done) {
-    var options = {
-      method: 'GET',
-      url: server.lookup('root').path
-    };
-
-    server.inject(options, function(response) {
-      expect(response.statusCode).to.equal(302);
-      expect(response.headers.location).to.equal(
-          server.lookup('releases').path);
-      done();
-    });
-  });
-
   lab.test('GET /releases/', function(done) {
     var options = {
       method: 'GET',
