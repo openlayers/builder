@@ -1,6 +1,6 @@
 var log = require('npmlog');
 
-var config = require('./config');
+var config = require('./lib/config');
 var downloader = require('./lib/downloader');
 var server = require('./lib/server');
 
