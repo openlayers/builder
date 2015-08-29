@@ -11,7 +11,7 @@ log.level = config.logLevel;
 // Kick off any new downloads
 downloader.start(function(err) {
   if (err) {
-    console.error(err.stack || err);
+    process.stderr.write((err.stack || err.message) + '\n');
     process.exit(1);
   }
 });
