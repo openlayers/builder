@@ -1,8 +1,8 @@
 {
   "releases": [
     {
-      "name": "3.8.0",
-      "archive": "https://github.com/openlayers/ol3/archive/v3.8.0.zip"
+      "name": "3.8.2",
+      "archive": "https://github.com/openlayers/ol3/archive/v3.8.2.zip"
     }
   ]
 }
