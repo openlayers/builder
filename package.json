@@ -17,6 +17,7 @@
     "inert": "^3.0.1",
     "joi": "6.6.1",
     "npmlog": "1.2.1",
+    "openlayers-builder-util": "^0.2.0",
     "rimraf": "2.4.3",
     "rwlock": "^5.0.0",
     "shortid": "^2.2.2"
@@ -24,7 +25,8 @@
   "scripts": {
     "pretest": "eslint start.js lib test",
     "start": "node start.js",
-    "test": "eslint lib test start.js && lab"
+    "pretest": "eslint lib test start.js",
+    "test": "lab"
   },
   "devDependencies": {
     "code": "^1.4.0",
