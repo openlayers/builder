@@ -21,14 +21,18 @@ lab.experiment('server', function() {
   });
 
   lab.test('GET / includes CORS headers', function(done) {
+    var origin = 'example.com';
     var options = {
       method: 'GET',
-      url: server.lookup('root').path
+      url: server.lookup('root').path,
+      headers: {
+        origin: origin
+      }
     };
 
     server.inject(options, function(response) {
       var headers = response.headers;
-      expect(headers['access-control-allow-origin']).to.equal('*');
+      expect(headers['access-control-allow-origin']).to.equal(origin);
       done();
     });
   });
