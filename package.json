@@ -15,7 +15,7 @@
     "get-down": "1.0.0",
     "hapi": "11.0.3",
     "inert": "3.2.0",
-    "joi": "6.10.0",
+    "joi": "7.0.0",
     "npmlog": "1.2.1",
     "openlayers-builder-util": "0.4.0",
     "rimraf": "2.4.3",
@@ -23,9 +23,8 @@
     "shortid": "2.2.4"
   },
   "scripts": {
-    "pretest": "eslint start.js lib test",
-    "start": "node start.js",
     "pretest": "eslint lib test start.js",
+    "start": "node start.js",
     "test": "lab"
   },
   "devDependencies": {
