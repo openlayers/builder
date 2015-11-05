@@ -16,7 +16,7 @@
     "hapi": "11.0.3",
     "inert": "3.2.0",
     "joi": "7.0.0",
-    "npmlog": "1.2.1",
+    "npmlog": "2.0.0",
     "openlayers-builder-util": "0.4.0",
     "rimraf": "2.4.3",
     "rwlock": "5.0.0",
