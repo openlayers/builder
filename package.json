@@ -18,7 +18,7 @@
     "joi": "7.0.0",
     "npmlog": "2.0.0",
     "openlayers-builder-util": "0.4.0",
-    "rimraf": "2.4.4",
+    "rimraf": "2.5.0",
     "rwlock": "5.0.0",
     "shortid": "2.2.4"
   },
