@@ -9,7 +9,7 @@
     "url": "git://github.com/openlayers/builder.git"
   },
   "dependencies": {
-    "async": "1.5.0",
+    "async": "1.5.1",
     "boom": "3.0.0",
     "fs-extra": "0.26.2",
     "get-down": "1.0.0",
