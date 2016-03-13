@@ -28,7 +28,7 @@
     "test": "lab"
   },
   "devDependencies": {
-    "code": "^2.0.1",
+    "code": "^2.1.1",
     "eslint": "^1.8.0",
     "eslint-config-openlayers": "^3.0.0",
     "lab": "^10.0.0"
