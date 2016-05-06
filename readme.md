@@ -21,3 +21,9 @@ When starting the server, new OpenLayers 3 releases will be downloaded.  This ma
 More configuration options to come.  For now, the `config.json` file includes a list of releases.  When a new release comes out, edit `config.json` with the name and URL for the release (archive of complete source, not release artifacts) and restart the server.
 
 [![Current Status](https://travis-ci.org/openlayers/builder.svg?branch=master)](https://travis-ci.org/openlayers/builder)
+
+## server details
+
+`ssh openlayers@74.208.127.55`
+
+Service named `openlayers-builder`
