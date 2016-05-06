@@ -11,7 +11,7 @@
   "dependencies": {
     "async": "1.5.2",
     "boom": "3.0.0",
-    "fs-extra": "0.26.5",
+    "fs-extra": "0.26.7",
     "get-down": "1.0.0",
     "hapi": "13.0.0",
     "inert": "3.2.1",
