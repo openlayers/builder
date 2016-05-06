@@ -24,6 +24,8 @@ More configuration options to come.  For now, the `config.json` file includes a 
 
 ## server details
 
-`ssh openlayers@74.208.127.55`
+  * address `74.208.127.55`
+  * service `openlayers-builder` (in `/etc/init.d/openlayers-builder`)
 
-Service named `openlayers-builder`
+
+To start `service openlayers-builder start`.
