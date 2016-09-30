@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "code": "^3.0.0",
-    "eslint": "^1.8.0",
+    "eslint": "^3.7.0",
     "eslint-config-openlayers": "^3.0.0",
     "lab": "^10.0.0"
   }
