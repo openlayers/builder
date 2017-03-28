@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "async": "1.5.2",
-    "boom": "3.0.0",
+    "boom": "4.3.1",
     "fs-extra": "1.0.0",
     "get-down": "1.0.0",
     "hapi": "13.0.0",
