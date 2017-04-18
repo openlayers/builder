@@ -20,7 +20,7 @@
     "openlayers-builder-util": "0.4.0",
     "rimraf": "2.5.2",
     "rwlock": "5.0.0",
-    "shortid": "2.2.4"
+    "shortid": "2.2.5"
   },
   "scripts": {
     "pretest": "eslint lib test start.js",
